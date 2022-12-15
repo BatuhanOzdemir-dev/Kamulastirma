@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Kamulastirma.Models.Sozlesmeler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bütün Sözleşmeler</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Proje Numarası
+            </th>
+            <th>
+                Kişi
+            </th>
+            <th>
+                Mülkiyet
+            </th>
+            <th>
+                Sözleşme Türü
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kisi.KisiId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mulkiyet.MulkiyetId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SozlesmeTuru.SozlesmeTuruId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SozlesmeId">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.SozlesmeId">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SozlesmeId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Kamulastirma.Models.Kisiler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HakSahibiNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TckimlikNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KisiAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KisiSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogumTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VefatBool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VefatTarih)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HakSahibiNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TckimlikNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VefatBool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VefatTarih)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KisiId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.KisiId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.KisiId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

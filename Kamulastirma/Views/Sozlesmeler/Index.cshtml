@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Kamulastirma.Models.Sozlesmeler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kisi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mulkiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SozlesmeTuru)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kisi.KisiId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mulkiyet.MulkiyetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SozlesmeTuru.SozlesmeTuruId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SozlesmeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SozlesmeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SozlesmeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
